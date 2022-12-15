@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Automat_Konsol
+﻿namespace Automat_Konsol
 {
+    /// <summary>
+    /// abstact class handling all wares
+    /// they have a name, a cost and a description
+    /// </summary>
+
     public abstract class Wares
     {
-        public string _name;
-        public int _cost;
-        public string _description;
+        public string name;
+        public int cost;
+        public string description;
         //public int stock;
 
 
         public Wares(string name, int cost, string description)
         {
-            _name = name;
-            _cost = cost;
-            _description = description;
+            this.name = name;
+            this.cost = cost;
+            this.description = description;
         }
     }
 }

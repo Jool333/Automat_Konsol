@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Automat_Konsol
+﻿namespace Automat_Konsol
 {
-    internal class Money
+    /// <summary>
+    /// class handling Money, they have a denomnation and a count
+    /// </summary>
+    public class Money
     {
         public int Denomination { get; set; }
         public int Count { get; set; }
@@ -17,6 +14,6 @@ namespace Automat_Konsol
             Count = count;
         }
 
-        
+
     }
 }

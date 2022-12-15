@@ -1,4 +1,8 @@
-﻿namespace Automat_Konsol
+﻿using System.Collections.Generic;
+using System.Diagnostics.Metrics;
+using System.Reflection;
+
+namespace Automat_Konsol
 {
     /// <summary>
     /// The main program, presents the user with a menu and creates all wares, the wallet and calls the methods of the ware classes, 
@@ -10,180 +14,246 @@
         {
             //lägg till alla produkter/användare/plånböcker
             Water water = new Water();
-            Soda soda = new Soda(); 
+            Soda soda = new Soda();
             Beer beer = new Beer();
-            Wallets wallet = new Wallets("Johan");
+            Burger burger = new Burger();
+            Pizza pizza = new Pizza();
+            Kebab kebab = new Kebab();
+            Umbrella umbrella = new Umbrella();
+            RainBoots rainBoots = new RainBoots();
+            RainCoat rainCoat = new RainCoat();
+            List<Money> walletMoney;
+            List<Money> vendingMoney;
+            Wallet
+                wallet = new Wallet("Johan", walletMoney = new List<Money>()
+            { 
+            new Money(1,10),
+            new Money(5,10),
+            new Money(10,10),
+            new Money(20,0),
+            new Money(50,0),
+            new Money(100,0)
+            });
+            Wallet vending = new Wallet("Vending", vendingMoney = new List<Money>()
+            {
+            new Money(1,0),
+            new Money(5,0),
+            new Money(10,0),
+            new Money(20,0),
+            new Money(50,0),
+            new Money(100,0)
+            });
+    
             //presentera val för anv
             int choice;
             int subchoice;
             do
             {
-                Console.WriteLine("What are you looking for?" +
-               "\n1.\tDrink" +
-               "\n2.\tFood" +
-               "\n3.\tRain gear" +
-               "\n4,\tAdd money" +
-               "\n0.\tExit the program");
+                Console.WriteLine("Vad önskas?" +
+               "\n1.\tVatten" +
+               "\n2.\tLäsk" +
+               "\n3.\tÖl" +
+               "\n4.\tBurgare" +
+               "\n5.\tPizza" +
+               "\n6.\tKebab" +
+               "\n7.\tParaply" +
+               "\n8.\tGummistövlar" +
+               "\n9.\tRegnjacka" +
+               "\n10\tSätta in pengar" +
+               "\n0.\tAvsluta programmet");
                 choice = ConvertInputToInt();
                 switch (choice)
                 {
                     case 0:
                         Environment.Exit(0);
                         break;
+
                     case 1:
                         do
                         {
-                            Console.Clear();
-                            Console.WriteLine("Which kind of drink do look for?" +
-                                "\n0.\tReturn to the previous menu" +
-                                "\n1.\tWater" +
-                                "\n2.\tSoda" +
-                                "\n3.\tBeer");
+                            ShowSubmenu();
                             subchoice = ConvertInputToInt();
                             switch (subchoice)
                             {
-                                case 0:
-                                    Console.Clear();    
-                                    break;
                                 case 1:
-                                    Console.Clear();
-                                    Console.WriteLine("What would you like to do?" +
-                                        "\n0.\tReturn to the previous menu" +
-                                        "\n1.\tSee the description" +
-                                        "\n2.\tPurchase");
-                                    subchoice = ConvertInputToInt();
-                                    switch (subchoice)
-                                    {
-                                        case 1:
-                                            water.Description();
-                                            break;
-                                        case 2:
-                                            water.Buy(wallet);
-                                            break;
-                                        default:
-                                            Console.Clear();
-                                            Console.WriteLine("Invalid input try again: ");
-                                            break;
-                                    }
+                                    water.Description();
                                     break;
                                 case 2:
-                                    Console.Clear();
-                                    Console.WriteLine("What would you like to do?" +
-                                        "\n0.\tReturn to the previous menu" +
-                                        "\n1.\tSee the description" +
-                                        "\n2.\tPurchase");
-                                    subchoice = ConvertInputToInt();
-                                    switch (subchoice)
-                                    {
-                                        case 1:
-                                            soda.Description();
-                                            break;
-                                        case 2:
-                                            soda.Buy(wallet);
-                                            break;
-                                        default:
-                                            Console.Clear();
-                                            Console.WriteLine("Invalid input try again: ");
-                                            break;
-                                    }
-                                    break;
-                                case 3:
-                                    Console.Clear();
-                                    Console.WriteLine("What would you like to do?" +
-                                        "\n0.\tReturn to the previous menu" +
-                                        "\n1.\tSee the description" +
-                                        "\n2.\tPurchase");
-                                    subchoice = ConvertInputToInt();
-                                    switch (subchoice)
-                                    {
-                                        case 1:
-                                            beer.Description();
-                                            break;
-                                        case 2:
-                                            beer.Buy(wallet);
-                                            break;
-                                        default:
-                                            Console.Clear();
-                                            Console.WriteLine("Invalid input try again: ");
-                                            break;
-                                    }
+                                    water.Buy(wallet);
                                     break;
                                 default:
-                                    Console.Clear();
-                                    Console.WriteLine("Invalid input try again: ");
+                                    ShowInvalidInput();
                                     break;
                             }
-                        } while (subchoice != 0);
-                        
+                        } while (subchoice != 2 && subchoice != 1);
                         break;
+
                     case 2:
                         do
                         {
-                            Console.Clear();
-                            Console.WriteLine("Which dish do you wish to purchase?" +
-                                "\n0.\tReturn to the previous menu" +
-                                "\n1.\tBurger" +
-                                "\n2.\tPizza" +
-                                "\n3.\tKebab");
+                            ShowSubmenu();
                             subchoice = ConvertInputToInt();
                             switch (subchoice)
                             {
-                                case 0:
-                                    Console.Clear();
-                                    break;
                                 case 1:
+                                    soda.Description();
                                     break;
                                 case 2:
-                                    break;
-                                case 3:
+                                    soda.Buy(wallet);
                                     break;
                                 default:
-                                    Console.Clear();
-                                    Console.WriteLine("Invalid input try again: ");
+                                    ShowInvalidInput();
                                     break;
                             }
-                        } while (subchoice != 0);
+                        } while (subchoice != 2 && subchoice != 1);
                         break;
+
                     case 3:
                         do
                         {
-                            Console.Clear();
-                            Console.WriteLine("Which piece of rain gear do you wish to purchase?" +
-                                "\n0.\tReturn to the previous menu" +
-                                "\n1.\tUmbrella" +
-                                "\n2.\tRain boots" +
-                                "\n3.\tRain coat");
+                            ShowSubmenu();
                             subchoice = ConvertInputToInt();
                             switch (subchoice)
                             {
-                                case 0:
-                                    Console.Clear();
-                                    break;
                                 case 1:
+                                    beer.Description();
                                     break;
                                 case 2:
-                                    break;
-                                case 3:
+                                    beer.Buy(wallet);
                                     break;
                                 default:
-                                    Console.Clear();
-                                    Console.WriteLine("Invalid input try again: ");
+                                    ShowInvalidInput();
                                     break;
                             }
-                        } while (subchoice != 0);
+                        } while (subchoice != 2 && subchoice != 1);
                         break;
+
                     case 4:
-                        Console.WriteLine("Hur mycket vill du sätta in?");
-                        int.TryParse(Console.ReadLine(), out int result);
-                        wallet.AddFunds(result);
+                        do
+                        {
+                            ShowSubmenu();
+                            subchoice = ConvertInputToInt();
+                            switch (subchoice)
+                            {
+                                case 1:
+                                    burger.Description();
+                                    break;
+                                case 2:
+                                    burger.Buy(wallet);
+                                    break;
+                                default:
+                                    ShowInvalidInput();
+                                    break;
+                            }
+                        } while (subchoice != 2 && subchoice != 1);
+                        break;
+                    case 5:
+                        do
+                        {
+                            ShowSubmenu();
+                            subchoice = ConvertInputToInt();
+                            switch (subchoice)
+                            {
+                                case 1:
+                                    pizza.Description();
+                                    break;
+                                case 2:
+                                    pizza.Buy(wallet);
+                                    break;
+                                default:
+                                    ShowInvalidInput();
+                                    break;
+                            }
+                        } while (subchoice != 2 && subchoice != 1);
+                        break;
+                    case 6:
+                        do
+                        {
+                            ShowSubmenu();
+                            subchoice = ConvertInputToInt();
+                            switch (subchoice)
+                            {
+                                case 1:
+                                    kebab.Description();
+                                    break;
+                                case 2:
+                                    kebab.Buy(wallet);
+                                    break;
+                                default:
+                                    ShowInvalidInput();
+                                    break;
+                            }
+                        } while (subchoice != 2 && subchoice != 1);
+                        break;
+                    case 7:
+                        do
+                        {
+                            ShowSubmenu();
+                            subchoice = ConvertInputToInt();
+                            switch (subchoice)
+                            {
+                                case 1:
+                                    umbrella.Description();
+                                    break;
+                                case 2:
+                                    umbrella.Buy(wallet);
+                                    break;
+                                default:
+                                    ShowInvalidInput();
+                                    break;
+                            }
+                        } while (subchoice != 2 && subchoice != 1);
+                        break;
+                    case 8:
+                        do
+                        {
+                            ShowSubmenu();
+                            subchoice = ConvertInputToInt();
+                            switch (subchoice)
+                            {
+                                case 1:
+                                    rainBoots.Description();
+                                    break;
+                                case 2:
+                                    rainBoots.Buy(wallet);
+                                    break;
+                                default:
+                                    ShowInvalidInput();
+                                    break;
+                            }
+                        } while (subchoice != 2 && subchoice != 1);
+                        break;
+                    case 9:
+                        do
+                        {
+                            ShowSubmenu();
+                            subchoice = ConvertInputToInt();
+                            switch (subchoice)
+                            {
+                                case 1:
+                                    rainCoat.Description();
+                                    break;
+                                case 2:
+                                    rainCoat.Buy(wallet);
+                                    break;
+                                default:
+                                    ShowInvalidInput();
+                                    break;
+                            }
+                        } while (subchoice != 2 && subchoice != 1);
+                        break;
+                    case 10:
+                        Console.Clear();    
+                        Console.WriteLine($"Pengar i plånboken, totalt: {wallet.getBalance()}kr, uppdelat:\n{wallet.ToString()}" +
+                            $"\nPengar redan insatta i automaten: {vending.getBalance()}kr.");
+                        vending.AddFunds(wallet);
                         break;
                     default:
-                        Console.Clear();
-                        Console.WriteLine("Invalid input try again: ");
+                        ShowInvalidInput();
                         break;
                 }
             } while (choice != 0);
-            
+
 
 
         }
@@ -191,18 +261,34 @@
         /// Reads the users input and tries to converts it to int
         /// </summary>
         /// <returns>The converted input if it is parseable, if it cant returns -1</returns>
-        private static int ConvertInputToInt()
+        public static int ConvertInputToInt()
         {
-            return int.TryParse(Console.ReadKey().KeyChar.ToString(), out int result) ? result : -1;
+            return int.TryParse(Console.ReadLine(), out int result) ? result : -1;
         }
         /// <summary>
         /// Displays press any key to continue on a new line and then waits for a user to press any key before clearing the console
         /// </summary>
         public static void ShowPressAnyKey()
         {
-            Console.Write("Press any key to continue...");
+            Console.Write("Tryck valfri knapp för att fortsätta...");
             Console.ReadKey();
             Console.Clear();
         }
+        /// <summary>
+        /// Shows the submenu
+        /// </summary>
+        public static void ShowSubmenu()
+        {
+            Console.Clear();
+            Console.WriteLine("What would you like to do?" +
+                "\n1.\tSee the description" +
+                "\n2.\tPurchase");
+        }
+        public static void ShowInvalidInput()
+        {
+            Console.Clear();
+            Console.WriteLine("Ogiltigt input, vänligen försök igen");
+        }
+        
     }
 }
