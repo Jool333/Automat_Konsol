@@ -138,16 +138,10 @@
             Console.ReadKey();
             Console.Clear();
         }
+        
         /// <summary>
-        /// Shows the submenu
+        /// Show that the input was in valid and then calls ShowPressAnyKey()
         /// </summary>
-        public static void ShowSubmenu()
-        {
-            Console.Clear();
-            Console.WriteLine("What would you like to do?" +
-                "\n1.\tSee the description" +
-                "\n2.\tPurchase");
-        }
         public static void ShowInvalidInput()
         {
             Console.Clear();
