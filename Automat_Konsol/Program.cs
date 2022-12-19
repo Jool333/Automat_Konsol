@@ -66,178 +66,43 @@
                         break;
 
                     case 1:
-                        do
-                        {
-                            ShowSubmenu();
-                            subchoice = ConvertInputToInt();
-                            switch (subchoice)
-                            {
-                                case 1:
-                                    water.Description();
-                                    break;
-                                case 2:
-                                    water.Buy(vending, wallet);
-                                    break;
-                                default:
-                                    ShowInvalidInput();
-                                    break;
-                            }
-                        } while (subchoice != 2 && subchoice != 1);
+                        water.Description();
+                        water.Buy(vending, wallet);
                         break;
 
                     case 2:
-                        do
-                        {
-                            ShowSubmenu();
-                            subchoice = ConvertInputToInt();
-                            switch (subchoice)
-                            {
-                                case 1:
-                                    soda.Description();
-                                    break;
-                                case 2:
-                                    soda.Buy(vending, wallet);
-                                    break;
-                                default:
-                                    ShowInvalidInput();
-                                    break;
-                            }
-                        } while (subchoice != 2 && subchoice != 1);
+                        soda.Description();
+                        soda.Buy(vending, wallet);
                         break;
 
                     case 3:
-                        do
-                        {
-                            ShowSubmenu();
-                            subchoice = ConvertInputToInt();
-                            switch (subchoice)
-                            {
-                                case 1:
-                                    beer.Description();
-                                    break;
-                                case 2:
-                                    beer.Buy(vending, wallet);
-                                    break;
-                                default:
-                                    ShowInvalidInput();
-                                    break;
-                            }
-                        } while (subchoice != 2 && subchoice != 1);
+                        beer.Description();
+                        beer.Buy(vending, wallet);
                         break;
 
                     case 4:
-                        do
-                        {
-                            ShowSubmenu();
-                            subchoice = ConvertInputToInt();
-                            switch (subchoice)
-                            {
-                                case 1:
-                                    burger.Description();
-                                    break;
-                                case 2:
-                                    burger.Buy(vending, wallet);
-                                    break;
-                                default:
-                                    ShowInvalidInput();
-                                    break;
-                            }
-                        } while (subchoice != 2 && subchoice != 1);
+                        burger.Description();
+                        burger.Buy(vending, wallet);
                         break;
                     case 5:
-                        do
-                        {
-                            ShowSubmenu();
-                            subchoice = ConvertInputToInt();
-                            switch (subchoice)
-                            {
-                                case 1:
-                                    pizza.Description();
-                                    break;
-                                case 2:
-                                    pizza.Buy(vending, wallet);
-                                    break;
-                                default:
-                                    ShowInvalidInput();
-                                    break;
-                            }
-                        } while (subchoice != 2 && subchoice != 1);
+                        pizza.Description();
+                        pizza.Buy(vending, wallet);
                         break;
                     case 6:
-                        do
-                        {
-                            ShowSubmenu();
-                            subchoice = ConvertInputToInt();
-                            switch (subchoice)
-                            {
-                                case 1:
-                                    kebab.Description();
-                                    break;
-                                case 2:
-                                    kebab.Buy(vending, wallet);
-                                    break;
-                                default:
-                                    ShowInvalidInput();
-                                    break;
-                            }
-                        } while (subchoice != 2 && subchoice != 1);
+                        kebab.Description();
+                        kebab.Buy(vending, wallet);
                         break;
                     case 7:
-                        do
-                        {
-                            ShowSubmenu();
-                            subchoice = ConvertInputToInt();
-                            switch (subchoice)
-                            {
-                                case 1:
-                                    umbrella.Description();
-                                    break;
-                                case 2:
-                                    umbrella.Buy(vending, wallet);
-                                    break;
-                                default:
-                                    ShowInvalidInput();
-                                    break;
-                            }
-                        } while (subchoice != 2 && subchoice != 1);
+                        umbrella.Description();
+                        umbrella.Buy(vending, wallet);
                         break;
                     case 8:
-                        do
-                        {
-                            ShowSubmenu();
-                            subchoice = ConvertInputToInt();
-                            switch (subchoice)
-                            {
-                                case 1:
-                                    rainBoots.Description();
-                                    break;
-                                case 2:
-                                    rainBoots.Buy(vending, wallet);
-                                    break;
-                                default:
-                                    ShowInvalidInput();
-                                    break;
-                            }
-                        } while (subchoice != 2 && subchoice != 1);
+                        rainBoots.Description();
+                        rainBoots.Buy(vending, wallet);
                         break;
                     case 9:
-                        do
-                        {
-                            ShowSubmenu();
-                            subchoice = ConvertInputToInt();
-                            switch (subchoice)
-                            {
-                                case 1:
-                                    rainCoat.Description();
-                                    break;
-                                case 2:
-                                    rainCoat.Buy(vending, wallet);
-                                    break;
-                                default:
-                                    ShowInvalidInput();
-                                    break;
-                            }
-                        } while (subchoice != 2 && subchoice != 1);
+                        rainCoat.Description();
+                        rainCoat.Buy(vending, wallet);
                         break;
                     case 10:
                         Console.Clear();

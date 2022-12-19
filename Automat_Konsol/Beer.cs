@@ -42,6 +42,7 @@
 
         public void Description()
         {
+            Console.Clear();
             Console.WriteLine(description);
         }
 

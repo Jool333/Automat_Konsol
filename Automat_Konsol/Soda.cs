@@ -47,7 +47,6 @@
         {
             Console.Clear();
             Console.WriteLine(description);
-            Program.ShowPressAnyKey();
         }
 
         public void Drink()
