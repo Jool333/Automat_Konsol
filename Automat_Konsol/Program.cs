@@ -109,14 +109,16 @@
                         Console.WriteLine($"Pengar i plånboken, totalt: {wallet.getBalance()}kr, uppdelat:\n{wallet.ToString()}" +
                             $"\nPengar redan insatta i automaten: {vending.getBalance()}kr.");
                         vending.AddFunds(wallet);
+                        Console.Clear();
+                        Console.WriteLine($"Pengar i plånboken, totalt: {wallet.getBalance()}kr, uppdelat:\n{wallet.ToString()}" +
+                            $"\nPengar redan insatta i automaten: {vending.getBalance()}kr.");
+                        ShowPressAnyKey();
                         break;
                     default:
                         ShowInvalidInput();
                         break;
                 }
             } while (choice != 0);
-
-
 
         }
         /// <summary>

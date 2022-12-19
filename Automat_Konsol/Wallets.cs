@@ -90,11 +90,13 @@
         /// <param name="change"></param>
         public void ReturnChange(Wallet wallet)
         {
+            string returned = this.ToString(); 
             for (int i = 0; i < wallet.money.Count; i++)
             {
                 wallet.money[i].Count += this.money[i].Count;
                 this.money[i].Count -= this.money[i].Count;
             }
+            Console.WriteLine($"Returnerar: {returned}");            
         }
 
         /// <summary>
@@ -116,7 +118,7 @@
         /// <returns>return the string depicting the money list</returns>
         public override string ToString()
         {
-            return $"Du har {this.money[0].Count} enkronor, {this.money[1].Count} femkronor, {this.money[2].Count} tiokronor," +
+            return $"{this.money[0].Count} enkronor, {this.money[1].Count} femkronor, {this.money[2].Count} tiokronor," +
                 $" {this.money[3].Count} tjugolappar, {this.money[4].Count} femtiolappar, {this.money[5].Count} hundra lappar";
         }
         /// <summary>
