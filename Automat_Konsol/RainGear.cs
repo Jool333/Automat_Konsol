@@ -4,6 +4,6 @@
     {
         void Buy(Wallet vending, Wallet wallet);
         void Description();
-        void PutOn();
+        void Use();
     }
 }

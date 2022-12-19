@@ -32,7 +32,7 @@
                             {
                                 vending.Pay(finalcost, wallet);
                                 Console.WriteLine($"Köpet slutfördes, {amount}st för totalt {finalcost}kr");
-                                Eat();
+                                Use();
                             }
                             else if (amount > vending.getBalance() / cost)
                             {
@@ -65,7 +65,7 @@
             Console.WriteLine(description);
         }
 
-        public void PutOn()
+        public void Use()
         {
             Console.WriteLine($"Du tar på regnjackan, det är {description.ToLower()}");
             Program.ShowPressAnyKey();
