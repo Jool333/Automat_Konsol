@@ -40,6 +40,10 @@
                 }
             }
             //find closest money over is better
+            if (cost > 0)
+            {
+
+            }
             // remove the money from the pile
         }
         /// <summary>

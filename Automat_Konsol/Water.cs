@@ -35,11 +35,21 @@
                             Console.WriteLine($"Hur många önskar du köpa? Du kan köpa som mest {vending.getBalance() / cost}st.");
                             int.TryParse(Console.ReadLine(), out int amount);
                             int finalcost = amount * cost;
-                            if (finalcost <= vending.getBalance())
+                            if (finalcost <= vending.getBalance() && finalcost != 0)
                             {
                                 vending.Pay(finalcost, wallet);
                                 Console.WriteLine($"Köpet slutfördes, {amount}st för totalt {finalcost}kr");
                                 Drink();
+                            }
+                            else if(amount > vending.getBalance()/cost)
+                            {
+                                Console.WriteLine("Du kan inte köpa fler än vad du har satt in pengar för");
+                                Program.ShowPressAnyKey();
+                            }
+                            else
+                            {
+                                Program.ShowInvalidInput();
+                                Program.ShowPressAnyKey();
                             }
 
                             break;
