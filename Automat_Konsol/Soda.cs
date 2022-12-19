@@ -8,7 +8,7 @@
             this.cost = cost;
             this.description = description;
         }
-        public void Buy(Wallet wallet)
+        public void Buy(Wallet vending, Wallet wallet)
         {
             int choice;
             do
@@ -24,7 +24,7 @@
                         int finalcost = amount * cost;
                         if (finalcost <= wallet.getBalance())
                         {
-                            wallet.Pay(finalcost);
+                            vending.Pay(finalcost, wallet);
                             Console.WriteLine($"Köpet slutfördes, {amount}st för totalt {finalcost}kr");
                             Drink();
                         }

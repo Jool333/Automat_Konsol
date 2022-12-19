@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Reflection;
-
-namespace Automat_Konsol
+﻿namespace Automat_Konsol
 {
     /// <summary>
     /// The main program, presents the user with a menu and creates all wares, the wallet and calls the methods of the ware classes, 
@@ -26,7 +22,7 @@ namespace Automat_Konsol
             List<Money> vendingMoney;
             Wallet
                 wallet = new Wallet("Johan", walletMoney = new List<Money>()
-            { 
+            {
             new Money(1,10),
             new Money(5,10),
             new Money(10,10),
@@ -43,7 +39,7 @@ namespace Automat_Konsol
             new Money(50,0),
             new Money(100,0)
             });
-    
+
             //presentera val för anv
             int choice;
             int subchoice;
@@ -65,6 +61,7 @@ namespace Automat_Konsol
                 switch (choice)
                 {
                     case 0:
+                        vending.ReturnChange(wallet);
                         Environment.Exit(0);
                         break;
 
@@ -79,7 +76,7 @@ namespace Automat_Konsol
                                     water.Description();
                                     break;
                                 case 2:
-                                    water.Buy(wallet);
+                                    water.Buy(vending, wallet);
                                     break;
                                 default:
                                     ShowInvalidInput();
@@ -99,7 +96,7 @@ namespace Automat_Konsol
                                     soda.Description();
                                     break;
                                 case 2:
-                                    soda.Buy(wallet);
+                                    soda.Buy(vending, wallet);
                                     break;
                                 default:
                                     ShowInvalidInput();
@@ -119,7 +116,7 @@ namespace Automat_Konsol
                                     beer.Description();
                                     break;
                                 case 2:
-                                    beer.Buy(wallet);
+                                    beer.Buy(vending, wallet);
                                     break;
                                 default:
                                     ShowInvalidInput();
@@ -139,7 +136,7 @@ namespace Automat_Konsol
                                     burger.Description();
                                     break;
                                 case 2:
-                                    burger.Buy(wallet);
+                                    burger.Buy(vending, wallet);
                                     break;
                                 default:
                                     ShowInvalidInput();
@@ -158,7 +155,7 @@ namespace Automat_Konsol
                                     pizza.Description();
                                     break;
                                 case 2:
-                                    pizza.Buy(wallet);
+                                    pizza.Buy(vending, wallet);
                                     break;
                                 default:
                                     ShowInvalidInput();
@@ -177,7 +174,7 @@ namespace Automat_Konsol
                                     kebab.Description();
                                     break;
                                 case 2:
-                                    kebab.Buy(wallet);
+                                    kebab.Buy(vending, wallet);
                                     break;
                                 default:
                                     ShowInvalidInput();
@@ -196,7 +193,7 @@ namespace Automat_Konsol
                                     umbrella.Description();
                                     break;
                                 case 2:
-                                    umbrella.Buy(wallet);
+                                    umbrella.Buy(vending, wallet);
                                     break;
                                 default:
                                     ShowInvalidInput();
@@ -215,7 +212,7 @@ namespace Automat_Konsol
                                     rainBoots.Description();
                                     break;
                                 case 2:
-                                    rainBoots.Buy(wallet);
+                                    rainBoots.Buy(vending, wallet);
                                     break;
                                 default:
                                     ShowInvalidInput();
@@ -234,7 +231,7 @@ namespace Automat_Konsol
                                     rainCoat.Description();
                                     break;
                                 case 2:
-                                    rainCoat.Buy(wallet);
+                                    rainCoat.Buy(vending, wallet);
                                     break;
                                 default:
                                     ShowInvalidInput();
@@ -243,7 +240,7 @@ namespace Automat_Konsol
                         } while (subchoice != 2 && subchoice != 1);
                         break;
                     case 10:
-                        Console.Clear();    
+                        Console.Clear();
                         Console.WriteLine($"Pengar i plånboken, totalt: {wallet.getBalance()}kr, uppdelat:\n{wallet.ToString()}" +
                             $"\nPengar redan insatta i automaten: {vending.getBalance()}kr.");
                         vending.AddFunds(wallet);
@@ -289,6 +286,6 @@ namespace Automat_Konsol
             Console.Clear();
             Console.WriteLine("Ogiltigt input, vänligen försök igen");
         }
-        
+
     }
 }

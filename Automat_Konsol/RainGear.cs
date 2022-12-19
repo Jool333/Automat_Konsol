@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Automat_Konsol
+﻿namespace Automat_Konsol
 {
     public interface RainGear
     {
-        void Buy(Wallet wallet);
+        void Buy(Wallet vending, Wallet wallet);
         void Description();
         void PutOn();
     }

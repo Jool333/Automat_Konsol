@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Automat_Konsol
+﻿namespace Automat_Konsol
 {
     internal class Pizza : Wares, Food
     {
@@ -12,7 +6,7 @@ namespace Automat_Konsol
         {
         }
 
-        public void Buy(Wallet wallet)
+        public void Buy(Wallet vending, Wallet wallet)
         {
             throw new NotImplementedException();
         }
