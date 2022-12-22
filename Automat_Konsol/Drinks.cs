@@ -6,7 +6,7 @@
     /// </summary>
     public interface Drinks
     {
-        void Buy(Wallet wallet);
+        void Buy(Wallet vending, Wallet wallet);
         void Description();
         void Drink();
     }
