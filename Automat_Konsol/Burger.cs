@@ -5,12 +5,16 @@
         public Burger(string name = "burgare", int cost = 50, string description = "En ostburgare.") : base(name, cost, description)
         {
         }
-
+        /// <summary>
+        /// Method for purchasing a water, checks if there is any money in the machine, displays the price and how many you could purchase with your current balance, user can select to buy or not
+        /// </summary>
+        /// <param name="vending"></param>
+        /// <param name="wallet"></param>
         public void Buy(Wallet vending, Wallet wallet)
         {
             if (vending.getBalance() == 0)
             {
-                Console.WriteLine("Där finns inga pengar insatta i automaten.");
+                Console.WriteLine($"Där finns inga pengar insatta i automaten, {name} kostar {cost}.");
                 Program.ShowPressAnyKey();
                 return;
             }
@@ -31,7 +35,7 @@
                             if (finalcost <= vending.getBalance() && finalcost != 0)
                             {
                                 vending.Pay(finalcost, wallet);
-                                Console.WriteLine($"Köpet slutfördes, {amount}st för totalt {finalcost}kr");
+                                Console.WriteLine($"Köpet slutfördes, {amount}st för totalt {finalcost}kr, kvarvarande saldo: {vending.getBalance()}kr.");
                                 Eat();
                             }
                             else if (amount > vending.getBalance() / cost)
@@ -58,13 +62,17 @@
                 } while (choice != 2 && choice != 1);
             }
         }
-
+        /// <summary>
+        /// Shows the description of the item
+        /// </summary>
         public void Description()
         {
             Console.Clear();
             Console.WriteLine(description);
         }
-
+        /// <summary>
+        /// Uses the item, shows a line to display its effects 
+        /// </summary>
         public void Eat()
         {
             Console.WriteLine($"Du äter burgaren, den är {description.ToLower()}");

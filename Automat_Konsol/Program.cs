@@ -45,6 +45,11 @@
             int subchoice;
             do
             {
+                Console.WriteLine($"Saldo: {vending.getBalance()}kr.");
+                if (vending.getBalance() == 0)
+                {
+                    Console.WriteLine("Vänligen sätt in pengar innan val av produkt.");
+                }
                 Console.WriteLine("Vad önskas?" +
                "\n1.\tVatten" +
                "\n2.\tLäsk" +
